@@ -1,0 +1,8 @@
+.idea
+.DS_Store
+.vscode
+*.log
+yarn.lock
+coverage
+node_modules
+/dist
