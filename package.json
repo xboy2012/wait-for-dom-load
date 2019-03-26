@@ -7,6 +7,12 @@
     "build": "babel-node src/build",
     "prepublish": "npm run build"
   },
+  "keywords": [
+    "wait",
+    "dom",
+    "load",
+    "event"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xboy2012/wait-for-dom-load.git"
