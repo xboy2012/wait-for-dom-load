@@ -28,8 +28,9 @@ const runAtFirst = fn => {
     }
     clearInterval(interval)
     run = runAfterLoaded
-    triggerCallbacks(callbacks)
+    const _callbacks = callbacks
     callbacks = null
+    triggerCallbacks(_callbacks)
   }, 50)
 }
 
