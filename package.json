@@ -1,6 +1,6 @@
 {
   "name": "wait-for-dom-load",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "A handy module that help you pu some logic just after the page load.",
   "main": "dist/index.js",
   "scripts": {

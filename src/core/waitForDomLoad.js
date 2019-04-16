@@ -1,5 +1,6 @@
 import isWindowLoaded from './isWindowLoaded'
 import triggerCallbacks from './triggerCallbacks'
+import nextTick from './nextTick';
 
 let callbacks
 
@@ -9,9 +10,10 @@ const runWhileLoading = fn => {
 }
 
 // 加载完毕，直接触发回调
-const runAfterLoaded = fn => {
-  setTimeout(fn, 0)
-}
+// const runAfterLoaded = fn => {
+//   nextTick(fn)
+// }
+const runAfterLoaded = nextTick
 
 // 首次加载，开启interval轮询
 const runAtFirst = fn => {
