@@ -1,4 +1,5 @@
 import isWindowLoaded from './isWindowLoaded'
+import triggerCallbacks from './triggerCallbacks'
 
 let callbacks
 
@@ -27,9 +28,7 @@ const runAtFirst = fn => {
     }
     clearInterval(interval)
     run = runAfterLoaded
-    for (let i = 0, l = callbacks.length; i < l; i++) {
-      setTimeout(callbacks[i], 0)
-    }
+    triggerCallbacks(callbacks)
     callbacks = null
   }, 50)
 }
