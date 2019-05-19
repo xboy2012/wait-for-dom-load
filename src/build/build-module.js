@@ -1,10 +1,9 @@
 import { rollup } from 'rollup'
 import { ROOT_DIR } from '../core/configs'
 import babel from 'rollup-plugin-babel'
-import checkEsVersion from '../core/checkEsVersion'
 
 export default async () => {
-  console.log('building lib...')
+  console.log('building module...')
   const bundle = await rollup({
     input: `${ROOT_DIR}/src/core/waitForDomLoad.js`,
     plugins: [
@@ -12,15 +11,10 @@ export default async () => {
     ],
   })
   await bundle.write({
-    file: `${ROOT_DIR}/dist/index.cjs.js`,
-    format: 'cjs',
+    file: `${ROOT_DIR}/dist/index.module.js`,
+    format: 'esm',
     sourcemap: true,
     strict: false,
   })
-  try {
-    await checkEsVersion(`${ROOT_DIR}/dist/index.cjs.js`)
-  } catch (e) {
-    throw Error('/dist/index.js is not es5')
-  }
-  console.log('lib built successfully')
+  console.log('module built successfully')
 }
