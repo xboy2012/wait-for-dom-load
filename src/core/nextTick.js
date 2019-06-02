@@ -6,8 +6,8 @@ let callbacks = []
 export default (fn) => {
   if (timer) {
     clearTimeout(timer)
-    callbacks.push(fn)
   }
+  callbacks.push(fn)
   timer = setTimeout(() => {
     timer = null
     const _callbacks = callbacks
