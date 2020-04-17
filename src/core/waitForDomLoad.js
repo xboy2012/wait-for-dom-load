@@ -38,6 +38,19 @@ const runAtFirst = fn => {
 
 let run = runAtFirst
 
-export default fn => {
+const waitForDomLoad = (fn) => {
   run(fn)
 }
+
+let _promise = null
+
+export const waitForDomLoadAsPromise = () => {
+  if (!_promise) {
+    _promise = new Promise((resolve) => {
+      waitForDomLoad(resolve)
+    })
+  }
+  return _promise
+}
+
+export default waitForDomLoad;
